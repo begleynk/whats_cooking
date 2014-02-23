@@ -90,12 +90,6 @@ update_chart1 = function (response)
     series: {
       argumentField: "category",
       valueField: "value",
-      label: {
-            visible: true,
-            connector: {
-                visible: true
-            }
-        }
    },
    title: {
       text: "Cuisine Distribution"
@@ -104,7 +98,7 @@ update_chart1 = function (response)
         enabled: true,
         percentPrecision: 2,
         customizeText: function (value) {
-            return value.point.series.name + ": " + value.percentText;
+            return value.percentText;
         }
     }
   });
