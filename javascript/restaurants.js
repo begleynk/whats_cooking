@@ -44,6 +44,15 @@ update_map = function (response)
   }
 }
 
+compare = function (a,b)
+{
+  if (a.value < b.value)
+     return -1;
+  if (a.value > b.value)
+    return 1;
+  return 0;
+}
+
 update_chart1 = function (response)
 {
   chart = $("#chart1");
@@ -84,12 +93,16 @@ update_chart1 = function (response)
     } 
   }
 
-  console.log(data);
+  data.sort(compare);
+
   chart.dxPieChart({
     dataSource: data,
     series: {
       argumentField: "category",
       valueField: "value",
+      label: {
+        visible: true,
+      }
    },
    title: {
       text: "Cuisine Distribution"
